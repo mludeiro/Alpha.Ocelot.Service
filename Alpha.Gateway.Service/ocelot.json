@@ -1,0 +1,62 @@
+{
+    "Routes": [
+      {
+        "DownstreamPathTemplate": "/",
+        "UpstreamPathTemplate": "/api/identity",
+        "ServiceName": "identity.service",
+        "UpstreamHttpMethod":  [ "GET" ],
+        "UpstreamScheme": "http",
+        "DownstreamScheme": "http"
+      },
+      {
+        "DownstreamPathTemplate": "/api/account/login",
+        "UpstreamPathTemplate": "/api/identity/account/login",
+        "ServiceName": "identity.service",
+        "UpstreamHttpMethod":  [ "POST" ],
+        "UpstreamScheme": "http",
+        "DownstreamScheme": "http"
+      },
+      {
+        "DownstreamPathTemplate": "/api/account/register",
+        "UpstreamPathTemplate": "/api/identity/account/register",
+        "ServiceName": "identity.service",
+        "UpstreamHttpMethod":  [ "POST" ],
+        "UpstreamScheme": "http",
+        "DownstreamScheme": "http"
+      },
+      {
+        "DownstreamPathTemplate": "/api/account/me",
+        "UpstreamPathTemplate": "/api/identity/account/me",
+        "ServiceName": "identity.service",
+        "UpstreamHttpMethod":  [ "GET" ],
+        "UpstreamScheme": "http",
+        "DownstreamScheme": "http"
+      },
+
+      {
+        "DownstreamPathTemplate": "/",
+        "UpstreamPathTemplate": "/api/weather",
+        "ServiceName": "weather.service",
+        "UpstreamHttpMethod":  [ "GET" ],
+        "UpstreamScheme": "http",
+        "DownstreamScheme": "http"
+      },
+      {
+        "DownstreamPathTemplate": "/weather",
+        "UpstreamPathTemplate": "/api/weather/weather",
+        "ServiceName": "weather.service",
+        "UpstreamHttpMethod":  [ "GET" ],
+        "UpstreamScheme": "http",
+        "DownstreamScheme": "http"
+      }      
+    ],
+    "GlobalConfiguration": {
+      "ServiceDiscoveryProvider": {
+        "Scheme": "http",
+        "Host": "consul",
+        "Port": 8500,
+        "Type": "Consul",
+        "PollingInterval": 100
+      }
+    }
+  }
