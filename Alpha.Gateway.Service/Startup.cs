@@ -1,11 +1,13 @@
 
+using Alpha.Common.Consul;
+using Alpha.Common.TokenService;
 using Alpha.Gateway.Authentication;
 using Alpha.Gateway.OpenTelemetry;
-using Alpha.Utils.Consul;
 using Gateway.OpenTelemetry;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Consul;
+using Refit;
 
 namespace Alpha.Gateway;
 
@@ -14,11 +16,18 @@ public class Startup(IConfiguration configuration)
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddOcelot()
-//                .AddDelegatingHandler<AlphaAuthenticationDelegatinHandler>(true)
+            .AddDelegatingHandler<AlphaAuthenticationDelegatinHandler>(true)
             .AddConsul();
-        services.AddScoped<AlphaAuthenticationDelegatinHandler>();
+        services.AddTransient<AlphaAuthenticationDelegatinHandler>();
 
         services.ConsulServicesConfig(configuration.GetSection("Consul").Get<ConsulConfig>()!);
+
+        services.AddTransient<ConsulRegistryHandler>();
+        
+        services.AddRefitClient<ITokenService>((a) => new RefitSettings(), "refit")
+            .ConfigureHttpClient(client => client.BaseAddress = new Uri("http://token.service:8080"))
+            .AddHttpMessageHandler<ConsulRegistryHandler>();
+
 
         services.AddMemoryCache();
         services.AddHealthChecks();
