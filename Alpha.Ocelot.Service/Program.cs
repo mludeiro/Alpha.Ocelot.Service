@@ -1,4 +1,4 @@
-namespace Alpha.Gateway;
+namespace Alpha.Ocelot;
 
 public class Program
 {

@@ -2,7 +2,7 @@
     "Routes": [
       {
         "DownstreamPathTemplate": "/",
-        "UpstreamPathTemplate": "/api/identity",
+        "UpstreamPathTemplate": "/identity",
         "ServiceName": "identity.service",
         "UpstreamHttpMethod":  [ "GET" ],
         "UpstreamScheme": "http",
@@ -10,7 +10,7 @@
       },
       {
         "DownstreamPathTemplate": "/api/account/login",
-        "UpstreamPathTemplate": "/api/identity/account/login",
+        "UpstreamPathTemplate": "/identity/api/account/login",
         "ServiceName": "identity.service",
         "UpstreamHttpMethod":  [ "POST" ],
         "UpstreamScheme": "http",
@@ -18,7 +18,7 @@
       },
       {
         "DownstreamPathTemplate": "/api/account/register",
-        "UpstreamPathTemplate": "/api/identity/account/register",
+        "UpstreamPathTemplate": "/identity/api/account/register",
         "ServiceName": "identity.service",
         "UpstreamHttpMethod":  [ "POST" ],
         "UpstreamScheme": "http",
@@ -26,7 +26,7 @@
       },
       {
         "DownstreamPathTemplate": "/api/account/me",
-        "UpstreamPathTemplate": "/api/identity/account/me",
+        "UpstreamPathTemplate": "/identity/api/account/me",
         "ServiceName": "identity.service",
         "UpstreamHttpMethod":  [ "GET" ],
         "UpstreamScheme": "http",
@@ -35,7 +35,7 @@
 
       {
         "DownstreamPathTemplate": "/",
-        "UpstreamPathTemplate": "/api/weather",
+        "UpstreamPathTemplate": "/weather/api",
         "ServiceName": "weather.service",
         "UpstreamHttpMethod":  [ "GET" ],
         "UpstreamScheme": "http",
@@ -43,7 +43,7 @@
       },
       {
         "DownstreamPathTemplate": "/weather",
-        "UpstreamPathTemplate": "/api/weather/weather",
+        "UpstreamPathTemplate": "/weather/api/weather",
         "ServiceName": "weather.service",
         "UpstreamHttpMethod":  [ "GET" ],
         "UpstreamScheme": "http",

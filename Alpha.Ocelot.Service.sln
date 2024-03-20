@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Gateway.Service", "Alpha.Gateway.Service\Alpha.Gateway.Service.csproj", "{40001754-B7AF-4A3A-A232-358C4A86DEBB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Ocelot.Service", "Alpha.Ocelot.Service\Alpha.Ocelot.Service.csproj", "{40001754-B7AF-4A3A-A232-358C4A86DEBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

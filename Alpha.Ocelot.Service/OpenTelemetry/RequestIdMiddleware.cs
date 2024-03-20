@@ -1,16 +1,9 @@
 using System.Diagnostics;
 
-namespace Gateway.OpenTelemetry;
+namespace Ocelot.OpenTelemetry;
 
-public class RequestIdMiddleware
+public class RequestIdMiddleware(RequestDelegate next)
 {
-    private readonly RequestDelegate _next;
-
-    public RequestIdMiddleware(RequestDelegate next)
-    {
-        _next = next;
-    }
-
     public async Task Invoke(HttpContext context)
     {
         if( !context.Response.Headers.ContainsKey("requestId") )
@@ -19,6 +12,6 @@ public class RequestIdMiddleware
             context.Response.Headers.Append("requestId", requestId ?? string.Empty);
         }
 
-        await _next(context);
+        await next(context);
     }
 }

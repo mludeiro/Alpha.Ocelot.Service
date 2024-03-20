@@ -4,7 +4,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 
 WORKDIR /app
 
-ARG APP_NAME=Alpha.Gateway.Service
+ARG APP_NAME=Alpha.Ocelot.Service
 
 ARG GITHUB_USER
 ENV GITHUB_USER ${GITHUB_USER}
@@ -20,7 +20,7 @@ RUN dotnet restore ${APP_NAME}
 
 FROM build as publish
 
-ARG APP_NAME=Alpha.Gateway.Service
+ARG APP_NAME=Alpha.Ocelot.Service
 
 RUN dotnet publish ./${APP_NAME} -c Release -o /${APP_NAME}/publish/
 
@@ -29,11 +29,11 @@ RUN dotnet publish ./${APP_NAME} -c Release -o /${APP_NAME}/publish/
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS app
 EXPOSE 8080
 
-ARG APP_NAME=Alpha.Gateway.Service
+ARG APP_NAME=Alpha.Ocelot.Service
 ENV APP_NAME ${APP_NAME}
 
 WORKDIR /app
 
 COPY --from=publish /${APP_NAME}/publish/ .
 
-ENTRYPOINT ["dotnet", "Alpha.Gateway.Service.dll"]
+ENTRYPOINT ["dotnet", "Alpha.Ocelot.Service.dll"]

@@ -1,15 +1,15 @@
 
 using Alpha.Common.Consul;
 using Alpha.Common.TokenService;
-using Alpha.Gateway.Authentication;
-using Alpha.Gateway.OpenTelemetry;
-using Gateway.OpenTelemetry;
+using Alpha.Ocelot.Authentication;
+using Alpha.Ocelot.OpenTelemetry;
+using Ocelot.OpenTelemetry;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Consul;
 using Refit;
 
-namespace Alpha.Gateway;
+namespace Alpha.Ocelot;
 
 public class Startup(IConfiguration configuration)
 {

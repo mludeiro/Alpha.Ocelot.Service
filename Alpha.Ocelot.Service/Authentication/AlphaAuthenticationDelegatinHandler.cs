@@ -6,7 +6,7 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using Refit;
 
-namespace Alpha.Gateway.Authentication;
+namespace Alpha.Ocelot.Authentication;
 
 public class AlphaAuthenticationDelegatinHandler( ITokenService tokenService, IMemoryCache memCache, 
     ILogger<AlphaAuthenticationDelegatinHandler> logger) : DelegatingHandler
